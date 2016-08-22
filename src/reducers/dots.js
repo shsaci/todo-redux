@@ -11,10 +11,12 @@ const dot = (state = {}, action) => {
       if (state.id !== action.id) {
         return state
       }
-
       return Object.assign({}, state, {
         isOn: !state.isOn
       })
+
+    case 'DELETE_DOT':
+      return state.id !== action.id
 
     default:
       return state
@@ -31,6 +33,11 @@ const dots = (state = [], action) => {
 
     case 'TOGGLE_DOT':
       return state.map(d => {
+        return dot(d, action)
+      })
+
+    case 'DELETE_DOT':
+      return [...state].filter(d => {
         return dot(d, action)
       })
 

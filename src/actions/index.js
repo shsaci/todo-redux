@@ -21,3 +21,10 @@ export const toggleDot = (id) => {
     id
   }
 }
+
+export const rightClick = (id) => {
+  return {
+    type: 'DELETE_DOT',
+    id
+  }
+}

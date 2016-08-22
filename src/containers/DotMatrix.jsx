@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 
 import {toggleDot} from '../actions'
+import {rightClick} from '../actions'
 import Dots from '../components/Dots'
 
 const mapStateToProps = (state) => {
@@ -13,6 +14,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onDotClick: (id) => {
       dispatch(toggleDot(id))
+    },
+    rightClick: (evt, id) => {
+      evt.preventDefault()
+      dispatch(rightClick(id))
     }
   }
 }
