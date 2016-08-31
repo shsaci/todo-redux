@@ -1,30 +1,22 @@
-let nextDotId = 0
-
-const getRandomHexColor = () => {
-  // http://www.paulirish.com/2009/random-hex-color-code-snippets/
-  let color = Math.floor(Math.random() * 16777216)
-  color = `0${color.toString(16)}`
-  return `#${color.slice(-6)}`
-}
-
-export const addDot = () => {
+let nextTodoId = 0
+export const addTodo = (text) => {
   return {
-    type: 'ADD_DOT',
-    id: nextDotId++,
-    color: getRandomHexColor()
+    type: 'ADD_TODO',
+    id: nextTodoId++,
+    text
   }
 }
 
-export const toggleDot = (id) => {
+export const setVisibilityFilter = (filter) => {
   return {
-    type: 'TOGGLE_DOT',
-    id
+    type: 'SET_VISIBILITY_FILTER',
+    filter
   }
 }
 
-export const rightClick = (id) => {
+export const toggleTodo = (id) => {
   return {
-    type: 'DELETE_DOT',
+    type: 'TOGGLE_TODO',
     id
   }
 }
